@@ -1,1 +1,64 @@
-<div id="app"></div>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.2/d3plus.full.min.js"></script>
+</head>
+
+<font face="nunito,arial,verdana"> 
+<b>Nombre: </b> Sergio Siabato <br>
+<b>Url: </b><a href= "https://js-cmlw6k.stackblitz.io">https://js-cmlw6k.stackblitz.io</a><br>
+<b>GitHub: </b><a href= "https://github.com/SergioSiabatto721/Trabajo-Practico-08MBID">https://github.com/SergioSiabatto721/Trabajo-Practico-08MBID</a><br>
+</font>
+<h1>Trabajo Práctico - 08MBID Visualización de datos</h1>
+<h2>Universidad Internacional de Valencia<h2/>
+<br>
+
+<h2>Introducción</h2>
+<p> Con este trabajo practico pretendemos explotar varias tecnolgías de visualización para sacar el mayor provecho de ellas a la hora de mostrar a un público determinado, cierta información especifica de la manera más clara y evidente posible de tal manera que se transmita el mensaje correcto y preciso que queremos transmitir.</p><br>
+
+<h2>Fuente de datos</h2>
+
+<p>  Para esta actividad utilizaremos un set de datos en formato csv tomado del portal <b>Datos Abiertos</b>, el cual es un lugar web en Colombia que permite el acceso a miles de conjuntos de datos de caracter público y de libre uso de diferentes tematicas. De allí tomamos un set de datos que muestra el inventario de bases de datos publicadas en el portal y una serie de métricas sobre ellos</p><br>
+
+<b>Url de los datos: </b><a href= "https://www.datos.gov.co/dataset/Base-de-Datos-Inventario-de-Conjuntos-de-Datos-del/njuy-iarc">https://www.datos.gov.co/dataset/Base-de-Datos-Inventario-de-Conjuntos-de-Datos-del/njuy-iarc</a><br><br>
+
+
+
+<h2>Objetivos</h2>
+<p>El objetivo principal de este trabajo es proveer una herramienta de análisis a quienes desean evaluar las bases de datos libres más consultadas en Colombia durante un determinado periodo de tiempo desde diferentes dimensiones como lugar, fecha, tipo de BD o temática. </p>
+<p>Muchas veces los estudiantes se enfrentan a la decisión de escoger un set de datos adecuado para trabajos de fin academico como el presente informe, para lo cual deben evaluar el tipo de set de datos, la temática, la popularidad, la cantidad de registros y otras variables que influyen a la hora de escoger a base de datos adecuada. Por eso queremos visualizar un par de métricas relevantes que ayudaran con dicha decisión. </p>
+<p>Algo clave que trataremos de responder con esta herramienta es que tan alto es el porcentaje de conversión de los set de datos del inventario, refiriendonos a conversión como la acción de visualizar el set de datos en el portal y luego descargarlo.</p>
+
+
+
+<h2>Visualizaciones</h2><br>
+
+<p>Iniciamos con un par de gráficas claves para abordar el problema de manera general. Para ello usaremos las propiedades de las gráficas de Google Charts y DataWrapper ya que son fáciles de implementar para visualizaciones básicas. </p> <br>
+<p> Empezamos con un gráfico de anillo que a pesar de ser adecuado para pocas particiones (no es el caso nuestro), nos da una imagen clara del tipo de set de datos que mayor número de vistas tiene en el portal de Datos Abiertos y nos muestra como un solo tipo de datos abarca más del 50% de vistas, aún cuando existen más de cien tipos de bases de datos. Este es un dato clave pues nos da un índice de alta popularidad para los set de datos relacionados con “Salud y Protección Social”</p><br>
+<p>Utilizamos las propiedades de visualización 3D para resaltar aquellas partes del gráfico que queremos que sean más relevantes.</p> <br>
+
+
+<iframe width="781" height="483" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSZsxwKnvgqwLuzJm2tVSzBStg1rFX738IekMRjwo_H0J8p3L_RWADlqpmZpHi3pKPK5VElYs4BH1Zx/pubchart?oid=2035286958&amp;format=interactive"></iframe><br>
+
+<p>Sabiendo ya que la categoría más vista es la de “Salud y protección social”, hacemos un gráfico de barras horizontales que nos muestre el top 20 de títulos más descargados para dicha categoría. Allí observamos que existe una base de datos que fue descargada cientos de miles de veces más que las demás y es el set de datos referente a los casos de covid positivos en Colombia. Esto era de esperarse pues en el auge de la pandemia y aún hoy día muchas personas querían elaborar herramientas visuales de análisis sobre los casos de covid para llevar un control o simplemente informar a otros.  </p> <br>
+
+<p>Ya que la intención era comparar magnitudes, utilizamos un grafico de barras que nos permita evidenciar la gran diferencia que existe entre el número de descargas de unos títulos y otros. Solo usamos el top 20 pues existen miles de títulos diferentes en el set de datos original. </p> <br>
+
+<iframe width="1072" height="482" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSZsxwKnvgqwLuzJm2tVSzBStg1rFX738IekMRjwo_H0J8p3L_RWADlqpmZpHi3pKPK5VElYs4BH1Zx/pubchart?oid=1911551212&amp;format=interactive"></iframe><br>
+
+<p>Teniendo en mente los dos escenarios visualizados anteriormente, queremos tener un grupo de gráficos interactivos que nos permitan ahondar más en el tipo de set de datos y sus niveles de conversión, que nos permita filtrar por regiones para saber en que lugares se usan más unas bases de datos que otras, que nos permita discriminar por otro tipo de variables como el sector y realizar comparaciones directas inmediatas y que nos de mayor detalle de las bases de datos. 
+Para ello recurrimos al poder de Power BI al ofrecernos la posibilidad de crear tableros con conjuntos de gráficos interactivos por medio de filtros dinámicos que modifican todas las visualizaciones presentes y nos permite editar otros aspectos relevantes a la hora de diseñar un tablero de datos como la paleta de colores (que en este caso fue elegida de acuerdo a los colores del portal de Datos Abiertos), el orden de las gráficas para mostrar lo más relevante y general al inicio para luego ir entrando a lo especifico y detallado como los gráficos de barras y añadir otro tipo de elementos que visualmente generan mayor impacto en la audiencia como logos y encabezados.  
+ </p> <br>
+
+ <p>El tablero cuenta con 3 gráficos de anillos simples que nos muestran las 3 métricas que queremos ver por tipo de BD (vistas, descargas y conversión). Es importante resaltar que la métrica de conversión es una medida calculada creada con Power BI y el lenguaje DAX. </p> <br>
+
+ <p>Después de esto, observamos dos gráficos de barras horizontales con las mismas 3 métricas (vistas, descargas y conversión) pero separadas por categorías y ordenadas de mayor a menor, esto con el fin de realizar una comparación rápida de los 3 valores que queremos validar para cada BD.</p>
+
+ <p>Por último, contamos con una tabla con el detalle de ciertos valores relevantes para cada BD como Titulo, Dueño, Fecha de creación, Conversión, Descargas y Vistas. </p>
+
+<iframe title="proyecto final" width="1600" height="1024" src="https://app.powerbi.com/view?r=eyJrIjoiNmRlNmUyMzQtNmRmMy00M2I1LWE0MzQtY2M5NjUxMjFiNGYyIiwidCI6IjI5OWEyODgxLTEzODAtNDAyMC1iNDJmLTcxNWEzNWUxYmNhZiIsImMiOjR9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe><br>
+
+
+<p>Es importante resaltar que en el tablero de Power BI diseñado se tuvo en cuenta mostrar la información desde lo general a lo especifico pasando por varios niveles de detalle y dándole importancia siempre a las tres métricas relevantes a mostrar, pero vistas desde diferentes dimensiones. </p><br>
+
+<p>Es importante resaltar que en el tablero de Power BI diseñado se tuvo en cuenta mostrar la información desde lo general a lo especifico pasando por varios niveles de detalle y dándole importancia siempre a las tres métricas relevantes a mostrar, pero vistas desde diferentes dimensiones. </p><br>
